@@ -1,0 +1,77 @@
+/** @format */
+
+.checkout {
+  max-width: 500px;
+  margin: 30px auto; /* Slightly increased margin for spacing */
+  padding: 30px; /* Increased padding for a more spacious layout */
+  background: linear-gradient(
+    135deg,
+    #f9f9f9 0%,
+    #e2e2e2 100%
+  ); /* Gradient background */
+  border-radius: 10px; /* Slightly larger border radius */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow for depth */
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Increased gap for better spacing */
+}
+
+input {
+  padding: 12px; /* Increased padding for comfort */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Enhanced focus effect */
+}
+
+button {
+  padding: 12px; /* Increased padding for better usability */
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem; /* Slightly larger font */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Added transform for hover effect */
+}
+
+button:hover {
+  background-color: #218838;
+  transform: translateY(-2px); /* Lift effect on hover */
+}
+
+button:active {
+  transform: translateY(0); /* Reset on click */
+}
+
+p {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 10px 0; /* Added margin for better spacing */
+}
+
+p span {
+  font-weight: bold;
+  color: #007bff; /* Change color for emphasis */
+}
+
+/* Optional: Add media queries for responsiveness */
+@media (max-width: 600px) {
+  .checkout {
+    padding: 20px; /* Adjust padding on smaller screens */
+  }
+
+  p {
+    font-size: 1rem; /* Slightly smaller font on mobile */
+  }
+}

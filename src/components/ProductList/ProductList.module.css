@@ -1,0 +1,90 @@
+.product-list {
+  padding: 20px;
+  max-width: 1200px;
+  text-align: center;
+}
+
+/* Heading for the products section */
+.heading {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Styling for the category selector section */
+.category-selector {
+  margin-bottom: 20px;
+}
+
+/* Dropdown styling */
+.category-selector select {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #f8f8f8;
+  transition: all 0.3s ease;
+}
+
+/* Style when hovering over dropdown */
+.category-selector select:hover {
+  border-color: #999;
+}
+
+/* Product grid layout with 4 cards per row */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+  gap: 30px;
+  margin-top: 20px;
+}
+
+/* Button to load more products */
+.button {
+  padding: 12px 24px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin: 60px auto;
+  display: block;
+}
+
+.button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 20px;
+}
+
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr; /* 1 card per row */
+  }
+
+  .category-selector select {
+    width: 100%;
+    max-width: 300px;
+  }
+}

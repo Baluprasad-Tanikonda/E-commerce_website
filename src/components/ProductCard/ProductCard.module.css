@@ -1,0 +1,83 @@
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 300px;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background-color: #ffffff;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Container */
+.image-container {
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Image Styling */
+.image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* Product Title */
+h3 {
+  font-size: 1.3rem;
+  margin: 15px 0;
+  color: #333;
+}
+
+/* Product Description */
+p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.price {
+  font-size: 1.1rem; /* Slightly larger font for price */
+  color: #b12704; /* Amazon's red color for prices */
+  margin: 4px 0; /* Spacing around price */
+}
+
+.category {
+  font-size: 0.9rem; /* Smaller font for category */
+  color: #555; /* Medium gray color for category */
+}
+
+.rating {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Button Styling */
+.button {
+  background-color: #f0c14b; /* Amazon's yellow button */
+  border: 1px solid #a88734; /* Brown border for button */
+  color: #111; /* Dark text color */
+  padding: 8px 16px;
+  font-size: 1rem; /* Button font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 4px; /* Slightly rounded corners */
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+  margin-top: 12px;
+}
+
+Button:hover {
+  background-color: #ddb347;
+  transform: translateY(-2px);
+}
