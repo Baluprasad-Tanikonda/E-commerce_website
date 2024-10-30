@@ -6,9 +6,9 @@ import styles from './Profile.module.css';
 const Profile = () => {
     // State to store user details
     const [userDetails, setUserDetails] = useState({
-        name: 'John Doe',
-        email: 'johndoe@example.com',
-        address: '123 Main St, Anytown, USA',
+        name: 'Balu',
+        email: 'tanikonda@example.com',
+        address: '123 Ongole,Andhra pradesh.',
     });
 
     // State to manage form inputs
