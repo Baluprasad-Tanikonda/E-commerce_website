@@ -1,0 +1,85 @@
+/**
+ * src/components/Profile.module.css
+ *
+ * @format
+ */
+
+.profileContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  font-family: "Arial", sans-serif; /* Change font family as needed */
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 2rem; /* Adjusted for better visibility */
+}
+
+.profileCard {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 90%;
+  max-width: 600px; /* Limit the card width */
+  transition: transform 0.2s; /* Smooth scaling on hover */
+}
+
+.profileCard:hover {
+  transform: scale(1.02); /* Slightly enlarge the card on hover */
+}
+
+.profileImage {
+  border-radius: 50%; /* Circular profile picture */
+  width: 100px; /* Fixed width */
+  height: 100px; /* Fixed height */
+  margin-right: 20px; /* Space between image and text */
+  object-fit: cover; /* Ensure image covers the area */
+  border: 2px solid #ddd; /* Border around image */
+}
+
+.profileDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.profileDetails p {
+  margin: 5px 0; /* Space between text */
+  color: #555; /* Lighter color for text */
+  font-size: 1rem; /* Adjust font size */
+}
+
+/* src/components/Profile.module.css */
+.editButton {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.editButton:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+
+/* Add responsiveness for smaller screens */
+@media (max-width: 768px) {
+  .profileCard {
+    flex-direction: column; /* Stack image on top for small screens */
+    align-items: center; /* Center the image */
+  }
+
+  .profileImage {
+    margin: 0 0 10px 0; /* Margin at the bottom */
+  }
+}

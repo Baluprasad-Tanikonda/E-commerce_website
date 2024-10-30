@@ -1,11 +1,10 @@
-// src/components/Cart.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './Cart.module.css';
 
-const Cart = ({ cart, removeFromCart }) => {
+const Cart = ({ cart, removeFromCart, updateCart }) => {
     const navigate = useNavigate();
-    const totalPrice = cart.reduce((sum, product) => sum + product.price, 0);
+    const totalPrice = cart.reduce((sum, product) => sum + (product.price * product.quantity), 0);
 
     const handleCheckoutClick = () => {
         navigate('/checkout'); // Navigate to the checkout page
@@ -22,7 +21,9 @@ const Cart = ({ cart, removeFromCart }) => {
                         {cart.map((product, index) => (
                             <li key={index}>
                                 <p>{product.title}</p>
-                                <p>${product.price}</p>
+                                <p>${product.price} x {product.quantity}</p>
+                                <button onClick={() => updateCart(index, product.quantity - 1)} disabled={product.quantity <= 1}> - </button>
+                                <button onClick={() => updateCart(index, product.quantity + 1)}> + </button>
                                 <button onClick={() => removeFromCart(index)}>Remove</button>
                             </li>
                         ))}

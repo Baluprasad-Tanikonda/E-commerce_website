@@ -1,10 +1,11 @@
+// src/components/ProductDetails.js
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import styles from './ProductDetails.module.css';
 import Spinner from './../Spinner/Spinner';
 
-const ProductDetails = () => {
+const ProductDetails = ({ addToCart }) => { // Accept addToCart as a prop
     const { id } = useParams();
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -26,7 +27,7 @@ const ProductDetails = () => {
         fetchProductDetails();
     }, [id]);
 
-    if (loading) return <Spinner/>;
+    if (loading) return <Spinner />;
     if (error) return <p>{error}</p>;
 
     return (
@@ -47,7 +48,9 @@ const ProductDetails = () => {
                         </div>
                         <p className={styles['price']}>Price: ${product.price}</p>
                         <p className={styles['product-description']}>{product.description}</p>
-                        <button className={styles['button']}>Add to Cart</button>
+                        <button className={styles['button']} onClick={() => addToCart(product)}>
+                            Add to Cart
+                        </button>
                     </div>
                 </>
             )}

@@ -8,42 +8,33 @@ const ProductList = ({ addToCart }) => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [page, setPage] = useState(1);
     const [category, setCategory] = useState('all');
 
     useEffect(() => {
         const fetchProducts = async () => {
             setLoading(true);
-            console.log(`Fetching products for category: ${category} on page: ${page}`); // Log category and page
+            console.log(`Fetching products for category: ${category}`);
             try {
-                const response = category === 'all'
-                    ? await axios.get(`https://fakestoreapi.com/products?limit=8&page=${page}`)
-                    : await axios.get(`https://fakestoreapi.com/products/category/${category}?limit=8&page=${page}`);
+                const url = category === 'all'
+                    ? `https://fakestoreapi.com/products?limit=8`
+                    : `https://fakestoreapi.com/products/category/${category}?limit=8`;
 
-                console.log('Products fetched successfully:', response.data); // Log fetched products
+                const response = await axios.get(url);
+                console.log('Products fetched successfully:', response.data);
 
-                if (page === 1) {
-                    // Reset products when changing category
-                    setProducts(response.data);
-                } else {
-                    // Append new products if loading more
-                    setProducts((prevProducts) => [...prevProducts, ...response.data]);
-                }
+                setProducts(response.data);
                 setLoading(false);
             } catch (err) {
-                console.error('Error fetching products:', err); // Log the error
+                console.error('Error fetching products:', err);
                 setError('Error fetching products. Please try again later.');
                 setLoading(false);
             }
         };
         fetchProducts();
-    }, [page, category]);
-
-    const loadMore = () => setPage(page + 1);
+    }, [category]);
 
     const handleCategoryChange = (e) => {
         setCategory(e.target.value);
-        setPage(1);
     };
 
     if (loading) return <Spinner />;
@@ -66,8 +57,6 @@ const ProductList = ({ addToCart }) => {
                     <ProductCard key={product.id} product={product} addToCart={addToCart} />
                 ))}
             </div>
-
-            <button className={styles.button} onClick={loadMore}>Load More</button>
         </div>
     );
 };
